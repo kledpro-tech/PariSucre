@@ -1,14 +1,10 @@
 "use server";
 
-import Stripe from "stripe";
 import { db } from "@/lib/db";
 import { orders, orderDesigns } from "@/lib/db/schema";
 import { redirect } from "next/navigation";
 import type { ConfiguratorState } from "@/types/configurator";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: "2026-06-24.dahlia" as any, // Cast as any to bypass strict version locking if types differ
-});
+import { getStripe } from "@/lib/stripe/client";
 
 export async function createCheckoutSession(
   configState: ConfiguratorState,
@@ -43,7 +39,7 @@ export async function createCheckoutSession(
     const mockOrderId = "mock-order-id";
 
     // 2. Create Stripe Checkout Session
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: [
