@@ -260,15 +260,15 @@ export default function OrderFlow() {
 
       {/* ── STEP 1: PRODUCT & DESIGN ── */}
       {currentStep === 1 && (
-        <div className="space-y-10 animate-fade-in-up" style={{ animationDuration: '0.4s', opacity: 1 }}>
+        <div className="space-y-6 animate-fade-in-up" style={{ animationDuration: '0.4s', opacity: 1 }}>
           {/* ── 1. PRODUCT TYPE ── */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">1</div>
               <h3 className="text-xl font-bold text-foreground">Type de produit</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-0 sm:ml-11">
+            <div className="flex flex-row items-stretch gap-2 sm:gap-3 ml-0 sm:ml-11">
               {/* Custom */}
               <button
                 type="button"
@@ -276,26 +276,26 @@ export default function OrderFlow() {
                   setProductType("custom");
                   setCartonType(3000);
                 }}
-                className={`flex flex-col items-start text-left p-5 rounded-xl border-2 transition-all ${
+                className={`relative flex flex-1 flex-col items-start text-left p-3 sm:p-4 rounded-lg border-2 transition-all min-w-0 ${
                   productType === "custom"
-                    ? "border-primary bg-primary/5 ring-4 ring-primary/10"
+                    ? "border-primary bg-primary/5 ring-2 ring-primary/10"
                     : "border-border hover:border-primary/40 hover:bg-muted/30"
                 }`}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`p-1.5 rounded-lg ${productType === "custom" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}>
-                    <Sparkles className="h-4 w-4" />
+                <div className="flex items-center gap-1.5 mb-1.5 w-full">
+                  <div className={`p-1 rounded-md ${productType === "custom" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}>
+                    <Sparkles className="h-3.5 w-3.5" />
                   </div>
-                  <span className="font-semibold text-foreground">Personnalisé (Votre Logo)</span>
-                  {productType === "custom" && <Check className="h-4 w-4 text-primary ml-auto" />}
+                  <span className="text-xs sm:text-sm font-semibold text-foreground leading-tight">Personnalisé (Votre Logo)</span>
+                  {productType === "custom" && <Check className="h-3.5 w-3.5 text-primary ml-auto shrink-0" />}
                 </div>
-                <p className="text-xs text-muted-foreground mb-4">
-                  Valorisez votre image de marque avec votre propre design, logo et couleurs.
+                <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 leading-snug">
+                  Votre design, logo et couleurs.
                 </p>
                 <div className="mt-auto">
-                  <span className="text-lg font-bold text-foreground">1 548,00 € HT</span>
-                  <span className="text-xs text-muted-foreground"> / palette</span>
-                  <div className="text-[10px] text-primary font-medium mt-1">Soit 0,0129 € HT / bûchette</div>
+                  <span className="text-sm sm:text-base font-bold text-foreground">1 548,00 € HT</span>
+                  <span className="text-[10px] sm:text-xs text-muted-foreground"> / palette</span>
+                  <div className="text-[10px] text-primary font-medium mt-0.5">0,0129 € HT / bûchette</div>
                 </div>
               </button>
 
@@ -303,26 +303,26 @@ export default function OrderFlow() {
               <button
                 type="button"
                 onClick={() => setProductType("standard")}
-                className={`flex flex-col items-start text-left p-5 rounded-xl border-2 transition-all ${
+                className={`relative flex flex-1 flex-col items-start text-left p-3 sm:p-4 rounded-lg border-2 transition-all min-w-0 ${
                   productType === "standard"
-                    ? "border-primary bg-primary/5 ring-4 ring-primary/10"
+                    ? "border-primary bg-primary/5 ring-2 ring-primary/10"
                     : "border-border hover:border-primary/40 hover:bg-muted/30"
                 }`}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`p-1.5 rounded-lg ${productType === "standard" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}>
-                    <Tag className="h-4 w-4" />
+                <div className="flex items-center gap-1.5 mb-1.5 w-full">
+                  <div className={`p-1 rounded-md ${productType === "standard" ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}>
+                    <Tag className="h-3.5 w-3.5" />
                   </div>
-                  <span className="font-semibold text-foreground">Gamme PariSucre (Standard)</span>
-                  {productType === "standard" && <Check className="h-4 w-4 text-primary ml-auto" />}
+                  <span className="text-xs sm:text-sm font-semibold text-foreground leading-tight">Gamme PariSucre (Standard)</span>
+                  {productType === "standard" && <Check className="h-3.5 w-3.5 text-primary ml-auto shrink-0" />}
                 </div>
-                <p className="text-xs text-muted-foreground mb-4">
-                  Bûchettes prêtes à servir arborant le design officiel PariSucre.
+                <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 leading-snug">
+                  Design officiel PariSucre, prêt à servir.
                 </p>
                 <div className="mt-auto">
-                  <span className="text-lg font-bold text-foreground">1 308,00 € HT</span>
-                  <span className="text-xs text-muted-foreground"> / palette</span>
-                  <div className="text-[10px] text-primary font-medium mt-1">Soit 0,0109 € HT / bûchette (Économie : −15,5%)</div>
+                  <span className="text-sm sm:text-base font-bold text-foreground">1 308,00 € HT</span>
+                  <span className="text-[10px] sm:text-xs text-muted-foreground"> / palette</span>
+                  <div className="text-[10px] text-primary font-medium mt-0.5">0,0109 € HT / bûchette (−15,5%)</div>
                 </div>
               </button>
             </div>
@@ -428,71 +428,71 @@ export default function OrderFlow() {
           <Separator />
 
           {/* ── 3. QUANTITIES ── */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">3</div>
               <h3 className="text-xl font-bold text-foreground">Conditionnement et quantités</h3>
             </div>
 
-            <div className="ml-0 sm:ml-11 space-y-8">
+            <div className="ml-0 sm:ml-11 space-y-4">
               {/* Packaging selection (custom only) */}
               {productType === "custom" && (
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <h4 className="text-sm font-semibold text-foreground">Format du carton</h4>
-                  <div className="flex flex-col sm:flex-row items-stretch gap-4 relative">
+                  <div className="flex flex-row items-stretch gap-2 sm:gap-3 relative">
                     <button
                       type="button"
                       onClick={() => setCartonType(1000)}
-                      className={`relative flex-1 flex flex-col items-center justify-center p-6 rounded-xl border-2 transition-all text-center ${
-                        cartonType === 1000 ? "border-primary bg-primary/5 ring-4 ring-primary/10" : "border-border hover:border-primary/40 hover:bg-muted/30"
+                      className={`relative flex-1 flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg border-2 transition-all text-center min-w-0 ${
+                        cartonType === 1000 ? "border-primary bg-primary/5 ring-2 ring-primary/10" : "border-border hover:border-primary/40 hover:bg-muted/30"
                       }`}
                     >
-                      <Layers className={`h-8 w-8 mb-3 ${cartonType === 1000 ? "text-primary" : "text-muted-foreground"}`} />
-                      <span className="text-base font-semibold text-foreground mb-1">Cartons de 1 000 u.</span>
-                      <span className="text-xs text-muted-foreground">120 cartons / palette</span>
-                      <span className="text-sm font-bold text-primary mt-3">12,90 € HT / carton</span>
-                      {cartonType === 1000 && <Check className="h-5 w-5 text-primary absolute top-4 right-4" />}
+                      <Layers className={`h-5 w-5 mb-1.5 ${cartonType === 1000 ? "text-primary" : "text-muted-foreground"}`} />
+                      <span className="text-xs sm:text-sm font-semibold text-foreground leading-tight">Cartons de 1 000 u.</span>
+                      <span className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">120 cartons / palette</span>
+                      <span className="text-xs sm:text-sm font-bold text-primary mt-1.5">12,90 € HT / carton</span>
+                      {cartonType === 1000 && <Check className="h-4 w-4 text-primary absolute top-2 right-2" />}
                     </button>
                     
                     {/* "OU" Badge */}
-                    <div className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background border-2 border-border items-center justify-center font-bold text-sm text-muted-foreground z-10 shadow-sm">
+                    <div className="flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-background border-2 border-border items-center justify-center font-bold text-[10px] sm:text-xs text-muted-foreground z-10 shadow-sm">
                       OU
                     </div>
 
                     <button
                       type="button"
                       onClick={() => setCartonType(3000)}
-                      className={`relative flex-1 flex flex-col items-center justify-center p-6 rounded-xl border-2 transition-all text-center ${
-                        cartonType === 3000 ? "border-primary bg-primary/5 ring-4 ring-primary/10" : "border-border hover:border-primary/40 hover:bg-muted/30"
+                      className={`relative flex-1 flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg border-2 transition-all text-center min-w-0 ${
+                        cartonType === 3000 ? "border-primary bg-primary/5 ring-2 ring-primary/10" : "border-border hover:border-primary/40 hover:bg-muted/30"
                       }`}
                     >
-                      <Package className={`h-8 w-8 mb-3 ${cartonType === 3000 ? "text-primary" : "text-muted-foreground"}`} />
-                      <span className="text-base font-semibold text-foreground mb-1">Cartons de 3 000 u.</span>
-                      <span className="text-xs text-muted-foreground">40 cartons / palette</span>
-                      <span className="text-sm font-bold text-primary mt-3">38,70 € HT / carton</span>
-                      {cartonType === 3000 && <Check className="h-5 w-5 text-primary absolute top-4 right-4" />}
+                      <Package className={`h-5 w-5 mb-1.5 ${cartonType === 3000 ? "text-primary" : "text-muted-foreground"}`} />
+                      <span className="text-xs sm:text-sm font-semibold text-foreground leading-tight">Cartons de 3 000 u.</span>
+                      <span className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">40 cartons / palette</span>
+                      <span className="text-xs sm:text-sm font-bold text-primary mt-1.5">38,70 € HT / carton</span>
+                      {cartonType === 3000 && <Check className="h-4 w-4 text-primary absolute top-2 right-2" />}
                     </button>
                   </div>
                 </div>
               )}
 
               {/* Palette quantity */}
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
+              <div className="space-y-2">
+                <div className="flex justify-between items-center gap-3">
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Nombre de palettes</h4>
                     <p className="text-xs text-muted-foreground">1 palette = 120 000 bûchettes (minimum de commande)</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Button variant="default" size="icon" onClick={() => handlePaletteChange(palettes - 1)} disabled={palettes <= 1} className="h-9 w-9 rounded-lg" aria-label="Retirer une palette">−</Button>
-                    <Input type="number" min={1} value={palettes} onChange={(e) => handlePaletteChange(parseInt(e.target.value) || 1)} className="w-16 text-center font-bold h-9 rounded-lg" aria-label="Nombre de palettes" />
-                    <Button variant="default" size="icon" onClick={() => handlePaletteChange(palettes + 1)} className="h-9 w-9 rounded-lg" aria-label="Ajouter une palette">+</Button>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <Button variant="default" size="icon" onClick={() => handlePaletteChange(palettes - 1)} disabled={palettes <= 1} className="h-8 w-8 rounded-lg" aria-label="Retirer une palette">−</Button>
+                    <Input type="number" min={1} value={palettes} onChange={(e) => handlePaletteChange(parseInt(e.target.value) || 1)} className="w-14 text-center font-bold h-8 rounded-lg" aria-label="Nombre de palettes" />
+                    <Button variant="default" size="icon" onClick={() => handlePaletteChange(palettes + 1)} className="h-8 w-8 rounded-lg" aria-label="Ajouter une palette">+</Button>
                   </div>
                 </div>
               </div>
 
               {/* Logistics summary card */}
-              <div className="bg-muted/50 rounded-xl p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+              <div className="bg-muted/50 rounded-lg p-3 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 <div className="flex items-center gap-2">
                   <Layers className="h-4 w-4 text-primary shrink-0" />
                   <div>
